@@ -1,15 +1,14 @@
 import React, {FC} from 'react';
-import {View, StyleSheet, Pressable, Text} from 'react-native';
-import {P, Card, SvgXml} from '../../../components';
+import {View, StyleSheet, Pressable} from 'react-native';
+import {P} from '../../../components';
 import {Colors} from '../../../styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {ScrollView} from 'react-native-gesture-handler';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {UserStackParamList} from '../../../navigation/user/user';
 
 type Props = NativeStackScreenProps<UserStackParamList, 'Home'>;
 
-export const HomeScreen: FC<Props> = ({navigation}) => {
+export const HomeScreen: FC<Props> = () => {
   return (
     <View style={styles.root}>
       <View style={styles.searchTable}>
@@ -21,30 +20,6 @@ export const HomeScreen: FC<Props> = ({navigation}) => {
             Մասնագիտություն / Բժշկի անուն / Բժշկական կենտրոն
           </P>
         </Pressable>
-      </View>
-      <View style={styles.scrollBox}>
-        <ScrollView
-          contentContainerStyle={styles.scroll}
-          showsVerticalScrollIndicator={false}>
-          <View style={styles.sectionBox}>
-            <SvgXml xml="doctorXml" />
-            <Text style={[styles.sectionText]}>
-              Մասնագիտություններ / Բաժիններ
-            </Text>
-          </View>
-          <Card xml="registrationXml" body="Առցանց հերթագրում" />
-          <Card
-            xml="hospitalXml"
-            body="Բժշկական կենտրոններ"
-            onPress={() => navigation.navigate('TabNavigator')}
-          />
-          <Card xml="historyXml" body="Բժշկական պատմություն" />
-          <Card xml="laptopXml" body="Հեռաբժշկություն" />
-          <Card xml="bagXml" body="Մեր մասին" />
-          <Card xml="profileXml" body="Իմ պրոֆիլը" />
-          <Card disabled xml="sosXml" body="SOS" />
-          <Card disabled xml="newsXml" body="Բժշկական նորություններ" />
-        </ScrollView>
       </View>
     </View>
   );

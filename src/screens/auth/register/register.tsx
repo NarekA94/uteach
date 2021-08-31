@@ -1,36 +1,36 @@
-import React, { FC, useContext } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, {FC, useContext} from 'react';
+import {ScrollView, StyleSheet, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   FormikInput,
   Button,
   AlreadyRegisterd,
   SvgXml,
   H1,
-} from "../../../components";
-import { useFormik } from "formik";
-import { validationSchema } from "./validationSchema";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { AuthContext } from "../../../context";
-import type { AuthStackParamList } from "../../../navigation/auth/auth";
+} from '../../../components';
+import {useFormik} from 'formik';
+import {validationSchema} from './validationSchema';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthContext} from '../../../context';
+import type {AuthStackParamList} from '../../../navigation/auth/auth';
 
-type Props = NativeStackScreenProps<AuthStackParamList, "SignIn">;
+type Props = NativeStackScreenProps<AuthStackParamList, 'SignIn'>;
 
-export const Register: FC<Props> = ({ navigation }) => {
+export const Register: FC<Props> = ({navigation}) => {
   const authUserData = useContext(AuthContext);
   const formik = useFormik({
     initialValues: {
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: "",
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (formValues) => {
+    onSubmit: formValues => {
       authUserData.setUserData(formValues);
     },
   });
-  const { values, handleSubmit, errors, touched } = formik;
+  const {values, handleSubmit, errors, touched} = formik;
   return (
     <SafeAreaView style={styles.root}>
       <View style={styles.logo}>
@@ -82,22 +82,20 @@ export const Register: FC<Props> = ({ navigation }) => {
         <Button
           width="75%"
           continerStyle={styles.socialMediaGoogle}
-          onPress={() => {}}
-        >
+          onPress={() => {}}>
           <SvgXml xml="googleXml" />
         </Button>
         <Button
           width="75%"
           continerStyle={styles.socialMediaFacebook}
-          onPress={() => {}}
-        >
+          onPress={() => {}}>
           <SvgXml xml="facebookXml" />
         </Button>
         <AlreadyRegisterd
           continerStyle={styles.sign}
           firstWord="Ես գրանցված եմ։"
           secondWord="Մուտք"
-          onPress={() => navigation.navigate("SignIn")}
+          onPress={() => navigation.navigate('SignIn')}
         />
       </ScrollView>
     </SafeAreaView>
@@ -107,31 +105,31 @@ export const Register: FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "#ffff",
+    backgroundColor: '#ffff',
     paddingTop: 10,
   },
   logo: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 8,
   },
-  heading: { marginTop: 20, marginBottom: 20 },
+  heading: {marginTop: 20, marginBottom: 20},
   scroll: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   form: {
-    width: "100%",
+    width: '100%',
     paddingHorizontal: 30,
   },
   buttonBox: {
-    width: "60%",
+    width: '60%',
     marginTop: 15,
   },
   info: {
     marginVertical: 10,
     paddingHorizontal: 6,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   infoText: {
     fontSize: 13,
@@ -143,13 +141,13 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   socialMediaGoogle: {
-    backgroundColor: "#fff",
-    borderColor: "#707070",
+    backgroundColor: '#fff',
+    borderColor: '#707070',
     borderWidth: 1,
     paddingVertical: 15,
   },
   socialMediaFacebook: {
-    backgroundColor: "#4666AB",
+    backgroundColor: '#4666AB',
     paddingVertical: 15,
   },
   sign: {
