@@ -12,7 +12,7 @@ function Navigation() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        {false ? <UserNavigation /> : <AuthNavigation />}
+        {user ? <UserNavigation /> : <AuthNavigation />}
       </NavigationContainer>
     </SafeAreaProvider>
   );

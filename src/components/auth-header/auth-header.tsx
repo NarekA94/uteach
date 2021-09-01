@@ -1,18 +1,16 @@
 import React, {FC, memo} from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useHeaderHeight} from '@react-navigation/elements';
 import {Colors} from '../../styles';
 import {useNavigation} from '@react-navigation/native';
-import {SvgXml, BellIcon} from '../../components';
-import Zocial from 'react-native-vector-icons/Zocial';
-import Feather from 'react-native-vector-icons/Feather';
+import {BellIcon} from '../../components';
 
 interface Props {
-  name: string;
+  label?: any;
 }
 
-export const AuthHeader: FC = memo(() => {
+export const AuthHeader: FC<Props> = memo(props => {
   const headerHeight = useHeaderHeight();
   const navigation = useNavigation();
 
@@ -31,30 +29,12 @@ export const AuthHeader: FC = memo(() => {
       <View style={styles.headerBox}>
         <View style={styles.row}>
           <TouchableOpacity style={styles.goback} onPress={goBack}>
-            <Icon name="chevron-left" color={Colors.default} size={45} />
+            <Icon name="chevron-left" color={Colors.white} size={45} />
           </TouchableOpacity>
-          <SvgXml xml="miniLogoXml" />
+          <Text style={styles.headerText}>{props?.label || ''}</Text>
         </View>
         <View style={styles.row}>
-          <Zocial
-            style={styles.icon}
-            name="email"
-            color={Colors.default}
-            size={28}
-          />
-          {/* <Icon
-            name="bell"
-            style={styles.icon}
-            color={Colors.default}
-            size={30}
-          /> */}
           <BellIcon />
-          <Feather
-            style={styles.icon}
-            name="menu"
-            color={Colors.default}
-            size={30}
-          />
         </View>
       </View>
     </View>
@@ -64,6 +44,7 @@ export const AuthHeader: FC = memo(() => {
 const styles = StyleSheet.create({
   root: {
     justifyContent: 'center',
+    backgroundColor: Colors.default,
   },
   row: {
     flexDirection: 'row',
@@ -82,8 +63,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerText: {
-    fontSize: 22,
-    color: Colors.default,
-    marginLeft: 10,
+    fontSize: 18,
+    color: Colors.white,
+    marginLeft: 5,
   },
 });

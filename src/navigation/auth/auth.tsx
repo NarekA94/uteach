@@ -1,8 +1,7 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SignIn, Register } from "../../screens";
-import { Header } from "../../components";
-import { AuthContextProvider, defaultValue } from "../../context";
+import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {SignIn, Register} from '../../screens';
+import {AuthContextProvider, defaultValue} from '../../context';
 
 export type AuthStackParamList = {
   SignIn: undefined;
@@ -34,4 +33,4 @@ function AuthNavigation() {
   );
 }
 
-export { AuthNavigation };
+export {AuthNavigation};

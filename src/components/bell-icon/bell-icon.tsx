@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import {Colors} from '../../styles';
 import {SvgXml} from '../svg-xml/svg-xml';
 
 export const BellIcon = () => {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   },
   noti: {
     position: 'absolute',
-    backgroundColor: '#FFC107',
+    backgroundColor: '#e85c4c',
     borderRadius: 100,
     width: 14,
     height: 14,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     top: 1,
     right: 1,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: Colors.default,
   },
   text: {
     fontSize: 10,

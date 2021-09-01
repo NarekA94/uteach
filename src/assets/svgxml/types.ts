@@ -1,1 +1,7 @@
-export type SvgXmlType = "logoXml" | "orXml" | "googleXml" | "facebookXml";
+export type SvgXmlType =
+  | 'logoXml'
+  | 'orXml'
+  | 'googleXml'
+  | 'facebookXml'
+  | 'bellXml'
+  | 'testXml';

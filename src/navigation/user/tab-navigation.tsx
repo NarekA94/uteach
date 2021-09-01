@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Colors} from '../../styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {SvgXml} from '../../components';
-import {HospitalListScreen} from '../../screens';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {HomeScreen} from '../../screens';
+import {AuthHeader, SvgXml} from '../../components';
 
 function SettingsScreen() {
   return (
@@ -23,43 +24,77 @@ export function TabNavigator() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: Colors.default,
+          backgroundColor: Colors.white,
           height: 120,
-          borderTopRightRadius: 45,
-          borderTopLeftRadius: 45,
         },
         tabBarItemStyle: {height: 50, marginTop: 15},
-        tabBarIconStyle: {color: Colors.white},
-        tabBarLabelStyle: {color: Colors.white},
+        tabBarIconStyle: {color: Colors.default},
+        tabBarLabelStyle: {color: Colors.default},
       }}>
       <Tab.Screen
-        name="Main"
+        name="Home"
         options={{
-          tabBarLabel: 'Գլխավոր',
-          tabBarIcon: ({size}) => (
-            <Ionicons name="home" color={Colors.white} size={size} />
+          header: () => <AuthHeader label="Թեստեր" />,
+          headerShown: true,
+          tabBarLabel: '',
+          tabBarLabelStyle: {fontSize: 14, color: Colors.default},
+          tabBarIcon: ({focused}) => (
+            <View style={styles.iconBox}>
+              <SvgXml
+                svgProps={{color: focused && Colors.activeTab}}
+                xml="testXml"
+              />
+              <Text
+                style={{color: focused ? Colors.activeTab : Colors.default}}>
+                Թեստեր
+              </Text>
+            </View>
           ),
         }}
-        component={HospitalListScreen}
+        component={HomeScreen}
       />
       <Tab.Screen
-        name="Registration"
+        name="Video"
         options={{
-          tabBarLabel: 'Հերթագրում',
-          tabBarIcon: () => <SvgXml xml="resgisterTabXml" />,
+          header: () => <AuthHeader label="Վիդեոդասեր" />,
+          headerShown: true,
+          tabBarLabel: '',
+          tabBarLabelStyle: {fontSize: 14, color: Colors.default},
+          tabBarIcon: ({size, focused}) => (
+            <View style={styles.iconBox}>
+              <Ionicons
+                name="videocam"
+                color={focused ? Colors.activeTab : Colors.default}
+                size={size + 6}
+              />
+              <Text
+                style={{color: focused ? Colors.activeTab : Colors.default}}>
+                Վիդեոդասեր
+              </Text>
+            </View>
+          ),
         }}
         component={SettingsScreen}
       />
       <Tab.Screen
         name="UserProfile"
         options={{
-          tabBarLabel: 'Իմ պրոֆիլը',
-          tabBarIcon: ({size}) => (
-            <Ionicons
-              name="person-circle-outline"
-              color={Colors.white}
-              size={size + 6}
-            />
+          header: () => <AuthHeader label="Իմ էջը" />,
+          headerShown: true,
+          tabBarLabel: '',
+          tabBarLabelStyle: {fontSize: 14, color: Colors.default},
+          tabBarIcon: ({size, focused}) => (
+            <View style={styles.iconBox}>
+              <FontAwesome
+                name="user"
+                color={focused ? Colors.activeTab : Colors.default}
+                size={size + 6}
+              />
+              <Text
+                style={{color: focused ? Colors.activeTab : Colors.default}}>
+                Իմ էջը
+              </Text>
+            </View>
           ),
         }}
         component={SettingsScreen}
@@ -67,3 +102,11 @@ export function TabNavigator() {
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  iconBox: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+});

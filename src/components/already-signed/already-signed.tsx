@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     justifyContent: 'center',
+    flex: 1,
+    flexWrap: 'wrap',
   },
   text: {
     color: Colors.defaultLigth,

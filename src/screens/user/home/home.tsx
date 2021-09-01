@@ -1,8 +1,7 @@
 import React, {FC} from 'react';
-import {View, StyleSheet, Pressable} from 'react-native';
-import {P} from '../../../components';
+import {View, StyleSheet} from 'react-native';
+import {P, SearchInput} from '../../../components';
 import {Colors} from '../../../styles';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {UserStackParamList} from '../../../navigation/user/user';
 
@@ -11,16 +10,8 @@ type Props = NativeStackScreenProps<UserStackParamList, 'Home'>;
 export const HomeScreen: FC<Props> = () => {
   return (
     <View style={styles.root}>
-      <View style={styles.searchTable}>
-        <P style={styles.P}>Փնտրեք ձեզ համար լավագույն բժշկին</P>
-        <P style={styles.P}>կամ բժշկական հաստատությունը</P>
-        <Pressable style={styles.button} onPress={() => {}}>
-          <Icon name="search" color={Colors.default} size={25} />
-          <P color={Colors.default} style={styles.searchLabel}>
-            Մասնագիտություն / Բժշկի անուն / Բժշկական կենտրոն
-          </P>
-        </Pressable>
-      </View>
+      <SearchInput />
+      <P>Home</P>
     </View>
   );
 };

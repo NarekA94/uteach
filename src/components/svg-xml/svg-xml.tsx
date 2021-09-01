@@ -6,10 +6,13 @@ export type {SvgXmlType} from '../../assets/svgxml/types';
 
 interface localProps {
   xml: SvgXmlType;
+  svgProps?: {[key: string]: any};
 }
 
 export const SvgXml = memo((props: localProps) => {
   const xm: any = Xmls;
-  const image: SvgXmlType = xm[props.xml];
-  return <DefSvg xml={image || null} />;
+  const image: SvgXmlType | Function = xm[props.xml];
+  return (
+    <DefSvg xml={typeof image === 'function' ? image(props.svgProps) : image} />
+  );
 });
