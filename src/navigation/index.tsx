@@ -5,15 +5,18 @@ import {AuthNavigation} from './auth/auth';
 import {UserNavigation} from './user/user';
 import {useRecoilValue} from 'recoil';
 import {userSate} from '../recoil';
+import {Provider as PaperProvider} from 'react-native-paper';
 
 function Navigation() {
   const user = useRecoilValue(userSate);
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        {user ? <UserNavigation /> : <AuthNavigation />}
-      </NavigationContainer>
+      <PaperProvider>
+        <NavigationContainer>
+          {user ? <UserNavigation /> : <AuthNavigation />}
+        </NavigationContainer>
+      </PaperProvider>
     </SafeAreaProvider>
   );
 }

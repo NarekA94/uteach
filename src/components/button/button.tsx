@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     paddingVertical: 17,
     width: '100%',
     marginVertical: 10,
+    alignSelf: 'center',
   },
   text: {
     color: '#fff',

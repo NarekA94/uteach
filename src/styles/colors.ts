@@ -9,4 +9,6 @@ export const Colors = {
   inputBackground: '#ECEDF1',
   placeholder: '#676A6D',
   activeTab: '#72c2dc',
+  black: '#000000',
+  sale: '#444D68',
 };

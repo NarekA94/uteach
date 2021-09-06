@@ -1,17 +1,17 @@
 import React, {FC} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {SearchInput, VideoCard} from '../../../components';
+import {SearchInput, VideoCard} from '../../../../components';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import type {UserStackParamList} from '../../../navigation/user/user';
+import type {VideoStackParamList} from '../../../../navigation/user/video-navigation';
 
-type Props = NativeStackScreenProps<UserStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<VideoStackParamList, 'VideoLessonsList'>;
 
-export const HomeScreen: FC<Props> = () => {
+export const VideoLessonsList: FC<Props> = ({navigation}) => {
   return (
     <View style={styles.root}>
       <SearchInput />
       <View style={styles.videoCards}>
-        <VideoCard />
+        <VideoCard onPress={() => navigation.navigate('VideoLessonInfo')} />
       </View>
     </View>
   );

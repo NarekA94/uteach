@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {HomeScreen} from '../../screens';
 import {AuthHeader, SvgXml} from '../../components';
-
+import {VideoLessonsNavigation} from './video-navigation';
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -20,6 +20,7 @@ const Tab = createBottomTabNavigator();
 export function TabNavigator() {
   return (
     <Tab.Navigator
+      initialRouteName="VideoLessons"
       sceneContainerStyle={{backgroundColor: Colors.white}}
       screenOptions={{
         headerShown: false,
@@ -32,7 +33,7 @@ export function TabNavigator() {
         tabBarLabelStyle: {color: Colors.default},
       }}>
       <Tab.Screen
-        name="Home"
+        name="Tests"
         options={{
           header: () => <AuthHeader label="Թեստեր" />,
           headerShown: true,
@@ -54,7 +55,7 @@ export function TabNavigator() {
         component={HomeScreen}
       />
       <Tab.Screen
-        name="Video"
+        name="VideoLessons"
         options={{
           header: () => <AuthHeader label="Վիդեոդասեր" />,
           headerShown: true,
@@ -74,7 +75,7 @@ export function TabNavigator() {
             </View>
           ),
         }}
-        component={SettingsScreen}
+        component={VideoLessonsNavigation}
       />
       <Tab.Screen
         name="UserProfile"

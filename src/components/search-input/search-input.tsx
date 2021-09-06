@@ -8,7 +8,7 @@ export const SearchInput = memo(() => {
   return (
     <View style={styles.root}>
       <View style={styles.inputBox}>
-        <View>
+        <View style={styles.icon}>
           <Icon name="search" color={Colors.default} size={25} />
         </View>
         <TextInput placeholder="Փնտրել" />
@@ -28,5 +28,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     borderRadius: 100,
     padding: 10,
+  },
+  icon: {
+    paddingHorizontal: 5,
   },
 });

@@ -16,3 +16,4 @@ export * from './card/card';
 export * from './listitem/listitem';
 export * from './tab-header/tab-header';
 export * from './search-input/search-input';
+export * from './video-card/video-card';

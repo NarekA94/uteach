@@ -6,7 +6,6 @@ import {View} from 'react-native';
 export type UserStackParamList = {
   Home: undefined;
   TabNavigator: undefined;
-  Hospital: undefined;
 };
 
 const Stack = createNativeStackNavigator();
