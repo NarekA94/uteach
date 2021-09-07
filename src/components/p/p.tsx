@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, TextStyle} from 'react-native';
+import {StyleSheet, Text, TextStyle, StyleProp} from 'react-native';
 import {Colors, Fonts} from '../../styles';
 
 interface localProps {
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
   color?: string;
 }
 

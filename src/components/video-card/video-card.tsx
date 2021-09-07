@@ -8,6 +8,7 @@ const cardImage = require('../../assets/images/mathematics.png');
 const videoUser = require('../../assets/images/video-user.png');
 interface Props {
   onPress?: () => void;
+  profile?: boolean;
 }
 
 export const VideoCard: FC<Props> = memo(props => {
@@ -18,17 +19,22 @@ export const VideoCard: FC<Props> = memo(props => {
         <Image source={videoUser} />
         <P style={styles.name}>Հովհաննես Աբրահամյան</P>
       </View>
-      <View style={styles.userInfo}>
+      <View style={[styles.userInfo, {borderBottomWidth: +!props.profile}]}>
         <H3 style={styles.h3}>
           Որոշեք ռուսերենի իմացության ձեր մակարդակը։ Որոշեք ռուսերեն իմացության
           ձեր մակարդակը
         </H3>
       </View>
-      <View style={styles.priceBox}>
-        <P>1ժամ 8րոպե</P>
-        <P style={styles.textBold}>12.000 դր</P>
-        <H3 style={{color: Colors.default, ...styles.textBold}}>6000 դր.</H3>
-      </View>
+
+      {!props.profile ? (
+        <View style={styles.priceBox}>
+          <P>1ժամ 8րոպե</P>
+          <P style={styles.textBold}>12.000 դր</P>
+          <H3 style={{color: Colors.default, ...styles.textBold}}>6000 դր.</H3>
+        </View>
+      ) : (
+        <P style={styles.duration}>Տեւողությունը՝ 1ժ. 8ր.</P>
+      )}
     </Pressable>
   );
 });
@@ -75,5 +81,9 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: 'bold',
+  },
+  duration: {
+    paddingHorizontal: 20,
+    paddingBottom: 10,
   },
 });

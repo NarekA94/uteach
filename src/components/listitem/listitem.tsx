@@ -1,15 +1,14 @@
 import React, {FC} from 'react';
 import {
-  Image,
-  Pressable,
+  TouchableOpacity,
   StyleSheet,
-  View,
   ViewStyle,
   TextStyle,
+  View,
 } from 'react-native';
-import {Colors, Fonts} from '../../styles';
+import {Colors} from '../../styles';
 import {H3} from '../h3/h3';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import {VectorIcon, iconFamily, SvgXml, SvgXmlType} from '..';
 
 interface Props {
   onPress?: () => void;
@@ -18,53 +17,49 @@ interface Props {
   continerStyle?: ViewStyle;
   textStyle?: TextStyle;
   showRigthIcon?: boolean;
+  groupName?: iconFamily;
+  iconName?: string;
+  iconXml?: SvgXmlType;
 }
-
-const testHospitalImage = require('../../assets/images/test-hospital.png');
 
 export const ListItem: FC<Props> = props => {
   return (
-    <Pressable
-      style={[styles.root, props.continerStyle]}
-      onPress={props.onPress}>
-      {props?.image && (
-        <View>
-          <Image
-            style={styles.image}
-            source={props?.image || testHospitalImage}
+    <TouchableOpacity onPress={props.onPress} style={styles.list}>
+      <View style={styles.icon}>
+        {props?.iconXml ? (
+          <SvgXml xml={props?.iconXml} />
+        ) : (
+          <VectorIcon
+            groupName={props?.groupName || 'Ion'}
+            color={Colors.default}
+            name={props?.iconName || 'videocam'}
+            size={25}
           />
-        </View>
-      )}
+        )}
+      </View>
 
-      <H3 style={{...styles.body, ...props.textStyle}}>{props?.body || ''}</H3>
-      {props.showRigthIcon && (
-        <View style={styles.icon}>
-          <AntDesign name="right" size={25} color={Colors.default} />
-        </View>
-      )}
-    </Pressable>
+      <H3 style={styles.h3}>{props?.body || ''}</H3>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {
-    flexDirection: 'row',
+  backgroundVideo: {
+    width: '100%',
+    height: 233,
+  },
+  icon: {
+    width: 30,
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 30,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    marginBottom: 5,
-    borderColor: '#ECEDF1',
-    paddingVertical: 7,
   },
-  image: {
-    height: 60,
-    width: 60,
+  infoBox: {
+    paddingHorizontal: 21,
+    paddingVertical: 30,
   },
-  body: {
-    marginLeft: 10,
-    marginBottom: 0,
-    fontSize: Fonts.default,
+  list: {
+    flexDirection: 'row',
+    paddingVertical: 12,
   },
-  icon: {justifyContent: 'center', alignItems: 'center'},
+  h3: {marginLeft: 20, color: Colors.black},
 });

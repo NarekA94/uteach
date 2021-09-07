@@ -1,19 +1,20 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {Fragment} from 'react';
 import {Text, View, ImageBackground, Image} from 'react-native';
 import {List} from 'react-native-paper';
 import {Colors} from '../../../../styles';
 import {styles} from './styles';
 import {Button, H3, P} from '../../../../components';
-
+import {useNavigation} from '@react-navigation/native';
 const examples = ['Ի՞նչ է SEO-ն։', 'Որոնողական համակարգեր', 'Ի՞նչ է SEO-ն։'];
 const certificate = require('../../../../assets/images/certificate.png');
 const manushak = require('../../../../assets/images/manushak.png');
 
 export const ListFooterComponent = () => {
+  const navigation = useNavigation();
   const renderAccordion = () =>
     examples.map((item, index) => (
       <View
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           borderWidth: 1,
           borderColor: '#A5A5A5',
@@ -35,6 +36,7 @@ export const ListFooterComponent = () => {
             left={props => (
               <List.Icon {...props} icon="video" color={Colors.black} />
             )}
+            onPress={() => navigation.navigate('VideoLesson')}
             style={{backgroundColor: Colors.white}}
             titleStyle={{color: Colors.black}}
             title="First item"

@@ -4,4 +4,10 @@ export type SvgXmlType =
   | 'googleXml'
   | 'facebookXml'
   | 'bellXml'
-  | 'testXml';
+  | 'testXml'
+  | 'cardXml'
+  | 'certificateXml'
+  | 'lockXml'
+  | 'bellIconXml'
+  | 'logoutXml'
+  | 'downloadXml';

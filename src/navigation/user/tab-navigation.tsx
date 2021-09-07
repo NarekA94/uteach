@@ -4,16 +4,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Colors} from '../../styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {HomeScreen} from '../../screens';
+import {TestListScreen, Profile} from '../../screens';
 import {AuthHeader, SvgXml} from '../../components';
 import {VideoLessonsNavigation} from './video-navigation';
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +26,7 @@ export function TabNavigator() {
         tabBarLabelStyle: {color: Colors.default},
       }}>
       <Tab.Screen
-        name="Tests"
+        name="TestList"
         options={{
           header: () => <AuthHeader label="Թեստեր" />,
           headerShown: true,
@@ -52,13 +45,13 @@ export function TabNavigator() {
             </View>
           ),
         }}
-        component={HomeScreen}
+        component={TestListScreen}
       />
       <Tab.Screen
         name="VideoLessons"
         options={{
           header: () => <AuthHeader label="Վիդեոդասեր" />,
-          headerShown: true,
+          // headerShown: true,
           tabBarLabel: '',
           tabBarLabelStyle: {fontSize: 14, color: Colors.default},
           tabBarIcon: ({size, focused}) => (
@@ -98,7 +91,7 @@ export function TabNavigator() {
             </View>
           ),
         }}
-        component={SettingsScreen}
+        component={Profile}
       />
     </Tab.Navigator>
   );

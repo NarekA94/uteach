@@ -11,4 +11,5 @@ export const Colors = {
   activeTab: '#72c2dc',
   black: '#000000',
   sale: '#444D68',
+  icon: '#444960',
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {VideoLessonsList, VideoLessonInfo} from '../../screens';
+import {VideoLessonsList, VideoLessonInfo, VideoLesson} from '../../screens';
+import {AuthHeader} from '../../components';
 
 export type VideoStackParamList = {
   VideoLessonsList: undefined;
@@ -16,7 +17,7 @@ export function VideoLessonsNavigation() {
         name="VideoLessonsList"
         component={VideoLessonsList}
         options={{
-          headerShown: false,
+          header: props => <AuthHeader {...props} label="Վիդեոդասեր" />,
           contentStyle: {backgroundColor: '#fff'},
         }}
       />
@@ -24,7 +25,15 @@ export function VideoLessonsNavigation() {
         name="VideoLessonInfo"
         component={VideoLessonInfo}
         options={{
-          headerShown: false,
+          header: props => <AuthHeader {...props} label="Վիդեոդասեր" />,
+          contentStyle: {backgroundColor: '#fff'},
+        }}
+      />
+      <Stack.Screen
+        name="VideoLesson"
+        component={VideoLesson}
+        options={{
+          header: props => <AuthHeader {...props} label="Վիդեոդասեր" />,
           contentStyle: {backgroundColor: '#fff'},
         }}
       />

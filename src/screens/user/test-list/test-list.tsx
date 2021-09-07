@@ -1,17 +1,17 @@
 import React, {FC} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {SearchInput, VideoCard} from '../../../components';
+import {SearchInput, TestCard} from '../../../components';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {UserStackParamList} from '../../../navigation/user/user';
 
-type Props = NativeStackScreenProps<UserStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<UserStackParamList>;
 
-export const HomeScreen: FC<Props> = () => {
+export const TestListScreen: FC<Props> = () => {
   return (
     <View style={styles.root}>
       <SearchInput />
       <View style={styles.videoCards}>
-        <VideoCard />
+        <TestCard />
       </View>
     </View>
   );
