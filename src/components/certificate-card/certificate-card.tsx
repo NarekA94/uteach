@@ -18,6 +18,7 @@ export const CertificateCard = () => {
           />
           <Text style={styles.share}>Share</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity>
           <SvgXml xml="downloadXml" />
         </TouchableOpacity>
