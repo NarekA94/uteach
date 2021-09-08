@@ -37,7 +37,11 @@ export const Profile: FC<Props> = ({navigation}) => {
           iconXml="cardXml"
           body="Վճարման պատմություն"
         />
-        <ListItem iconXml="certificateXml" body="Իմ հավաստագրերը" />
+        <ListItem
+          onPress={() => navigation.navigate('Certificate')}
+          iconXml="certificateXml"
+          body="Իմ հավաստագրերը"
+        />
         <ListItem
           groupName="Ion"
           iconName="settings-sharp"

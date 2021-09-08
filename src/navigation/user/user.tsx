@@ -7,6 +7,7 @@ import {
   ProfileVideoLesson,
   Notifications,
   PaymentHistory,
+  CertificateScreen,
 } from '../../screens';
 import {AuthHeader} from '../../components';
 
@@ -16,6 +17,7 @@ export type UserStackParamList = {
   ProfileVideoLesson: undefined;
   Notifications: undefined;
   PaymentHistory: undefined;
+  Certificate: undefined;
 };
 
 const Stack = createNativeStackNavigator();
@@ -62,6 +64,14 @@ export function UserNavigation() {
           header: props => (
             <AuthHeader {...props} label="Վճարման պատմություն" />
           ),
+          contentStyle: {backgroundColor: '#fff'},
+        }}
+      />
+      <Stack.Screen
+        name="Certificate"
+        component={CertificateScreen}
+        options={{
+          header: props => <AuthHeader {...props} label="Իմ հավաստագրերը" />,
           contentStyle: {backgroundColor: '#fff'},
         }}
       />

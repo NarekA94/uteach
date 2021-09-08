@@ -10,3 +10,4 @@ export * from './user/profile/user-info/user-info';
 export * from './user/profile/profile-video-lessons';
 export * from './user/notifications/notifications';
 export * from './user/profile/paymant-history/paymant-history';
+export * from './user/profile/certificate/certificate';

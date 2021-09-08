@@ -23,3 +23,4 @@ export * from './avatar/avatar';
 export * from './vector-icon/vector-icon';
 export * from './swipeable-notification/swipeable-notification';
 export * from './payment-card/payment-card';
+export * from './certificate-card/certificate-card';
